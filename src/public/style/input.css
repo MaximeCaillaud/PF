@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    font-family: 'Raleway', sans-serif;
+}
+
+::-webkit-scrollbar {
+    width: 0;
+}
+
+
+@layer components {
+    main {
+        @apply w-full fixed;
+    }
+    /*Block elements*/
+
+    /*Text elements*/
+    h1{
+        @apply text-5xl font-bold;
+    }
+    h2{
+        @apply text-3xl font-bold;
+    }
+    h3{
+        @apply text-lg font-semibold;
+    }
+    /*Text elements*/
+
+    /*Flex block*/
+    .half-row {
+        @apply flex flex-row divide-x-2;
+    }
+    .third-row {
+        @apply flex flex-row;
+    }
+    .half-col {
+        @apply flex flex-col divide-y-2;
+    }
+    .third-col {
+        @apply flex flex-col;
+    }
+    .center {
+        @apply flex flex-col items-center justify-center;
+    }
+    /*Flex block*/
+
+    /*Flex items even*/
+    .half-flex {
+        @apply basis-1/2;
+    }
+    .third-flex {
+        @apply basis-1/3;
+    }
+    /*Flex items*/
+
+    /*Flex order*/
+    .first {
+        @apply order-1;
+    }
+    .middle {
+        @apply order-2;
+    }
+    .last {
+        @apply order-3;
+    }
+    /*Flex order*/
+
+
+}
+
+/* Height of block based on screen */
+.transitionscreen {
+    height: 10vh;
+}
+.halfscreen {
+    height: 50vh;
+}
+.fitscreen {
+    height: 100vh;
+}
+/* Height of block based on screen */
+
+/* Custom css */
+/* Custom css */
+
+/* Animation block*/
+.scrollbar{
+    animation: scroll 1s linear;
+    animation-play-state: paused;
+    animation-delay: calc(var(--scroll) * -1s);
+    animation-iteration-count: 1;
+    animation-fill-mode: both;
+}
+.translateup{
+    animation: translateup 1s linear;
+    animation-play-state: paused;
+    animation-delay: calc(var(--scroll) * -1s);
+    animation-iteration-count: 1;
+    animation-fill-mode: both;
+}
+/* Animation block */
+
+/* Animation */
+@keyframes scroll {
+    from{
+        height: 3vh;
+    }
+    to {
+        height: calc(var(--scroll)*100%);
+    }
+}
+@keyframes translateup {
+    to {
+        /*transform: translateY(calc(var(--scroll)*-100%));*/
+        opacity: 0;
+    }
+}
+/* Animation */
+
+/* Dev */
+div{
+    /*border: black solid 2px;*/
+}
+.chevron{
+    clip-path: polygon(85% 0%, 100% 50%, 85% 100%, 0% 100%, 15% 50%, 0% 0%);
+}
+
+.clip{
+    clip-path: polygon(100% 0, 0% 100%, 0 0);
+}
+
+.hexagon{
+    clip-path: polygon(5% 0, 95% 0, 100% 50%, 95% 100%, 5% 100%, 0% 50%);
+}
+
+.open{
+    top: 0;
+    left: 0;
+}
+
+.actual{
+    top: 0;
+    left: 0;
+}
+
+
+.animate-click{
+    animation: click 1s infinite;
+}
+
+@keyframes click {
+    0%, 100% {
+        transform: translateX(-25%);
+        animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+    }
+    50% {
+        transform: translateX(0);
+        animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+    }
+}
+/* Dev */
+
+
+

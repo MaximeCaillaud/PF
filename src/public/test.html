@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="style/dist/output.css">
+</head>
+<body>
+
+<button onclick="playPiste(Bossanova)">Bossanova</button>
+
+<button onclick="playPiste(Bembe)">Bembe</button>
+
+<button onclick="playPiste(Tressillo)">Tressillo</button>
+
+<button onclick="playPiste(cinquillo)">Cinquillo</button>
+
+<button onclick="playPiste(Periodique)">Périodique</button>
+
+
+<div class="absolute top-1/4 left-1/2 bg-secondary w-96 h-96 flex justify-center items-center">
+    <svg class="h-full w-full" viewBox="0 0 100 100">
+        <circle xmlns="http://www.w3.org/2000/svg" cx="50" cy="50" r="45" fill="none" stroke="#fff" stroke-width="1"/>
+    </svg>
+</div>
+
+</body>
+<script>
+    const sleep = ms => new Promise(r => setTimeout(r, ms));
+
+    const audio = new Audio('./sound/metronome.mp3');
+
+
+    let Bossanova = [1,0,0,1,0,0,1,0,0,0,1,0,0,1,0,0];
+    let Bembe = [1,0,1,0,1,1,0,1,0,1,0,1];
+    let Tressillo = [1,0,0,1,0,0,1,0];
+    let cinquillo = [0,1,1,0,1,1,0,1];
+    let Periodique = [1,0,1,0,1,0,1,0,1,0];
+
+    const playPiste = async (piste) => {
+        for (let x = 0; x < 4; x++) {
+            for (let i = 0; i < piste.length; i++) {
+                if (piste[i] === 1) {
+                    await audio.play();
+                }
+                await sleep(200);
+            }
+        }
+    }
+</script>
+</html>
